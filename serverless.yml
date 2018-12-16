@@ -10,10 +10,11 @@ custom:
     packRequirements: false
   pythonRequirements:
     dockerizePip: non-linux
+    usePipenv: true
 
 provider:
   name: aws
-  runtime: python3.6
+  runtime: python3.7
   stage: dev
   region: eu-east-1
 
