@@ -6,6 +6,7 @@ plugins:
   - serverless-dynamodb-local
 
 custom:
+  queueName: TutorialSQS
   tableName: 'users-table-${self:provider.stage}'
   wsgi:
     app: app.app
@@ -33,6 +34,11 @@ provider:
         - dynamodb:DeleteItem
       Resource:
         - { "Fn::GetAtt": ["UsersDynamoDBTable", "Arn" ] }
+    - Effect: "Allow"
+      Action:
+        - "sqs:SendMessage"
+      Resource:
+        Fn::GetAtt: [ SQSQueue, Arn ]
   environment:
     USERS_TABLE: ${self:custom.tableName}
 
@@ -50,9 +56,24 @@ functions:
     handler: wsgi.handler
     events:
       - http: 'POST /users'
+  start-lambda:
+    handler: handler.start
+    environment:
+      SQS_URL:
+        Ref: SQSQueue
+  end-lambda:
+    handler: handler.end
+    events:
+      - sqs:
+          arn:
+            Fn::GetAtt: [ SQSQueue, Arn ]
 
 resources:
   Resources:
+    SQSQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: ${self:custom.queueName}
     UsersDynamoDBTable:
       Type: 'AWS::DynamoDB::Table'
       Properties:

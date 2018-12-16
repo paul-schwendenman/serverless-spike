@@ -41,9 +41,18 @@ Fetch new user::
 
     curl -H "Content-Type: application/json" -X GET ${BASE_DOMAIN}/users/pschwendenman
 
+Talking to SQS Queue and lambdas
+=================================
+
+::
+
+    serverless invoke -f start-lambda
+    serverless logs -f start-lambda
+    serverless logs -f end-lambda
 
 
+Sources
+=========
 
-Source:
-
-https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/
+- https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/
+- https://github.com/epsagon/sqs-lambda-tutorial
