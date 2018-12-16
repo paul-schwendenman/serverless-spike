@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-python-requirements": "^4.2.5",
+    "serverless-wsgi": "^1.5.3"
+  }
 }
