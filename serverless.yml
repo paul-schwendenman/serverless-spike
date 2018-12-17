@@ -41,6 +41,7 @@ provider:
         Fn::GetAtt: [ SQSQueue, Arn ]
   environment:
     USERS_TABLE: ${self:custom.tableName}
+    SQS_NAME: ${self:custom.queueName}
 
 functions:
   app:
@@ -48,6 +49,9 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+    environment:
+      SQS_URL:
+        Ref: SQSQueue
   getUser:
     handler: wsgi.handler
     events:

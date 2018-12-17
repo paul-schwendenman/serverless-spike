@@ -30,4 +30,4 @@ def end(event, context):
     :return: ''
     """
     print(event)
-    return ''
+    return 'Done.'
