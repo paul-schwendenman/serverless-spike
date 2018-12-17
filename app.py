@@ -74,16 +74,46 @@ def handle_slack_message():
         QueueUrl=os.getenv('SQS_URL'),
         MessageBody='test',
         MessageAttributes={
-            "token": {'DataType': 'String', 'StringValue': request.form.get('token', ''), },
-            "team_id": {'DataType': 'String', 'StringValue': request.form.get('team_id', ''), },
-            "team_domain": {'DataType': 'String', 'StringValue': request.form.get('team_domain', ''), },
-            "channel_id": {'DataType': 'String', 'StringValue': request.form.get('channel_id', ''), },
-            "channel_name": {'DataType': 'String', 'StringValue': request.form.get('channel_name', ''), },
-            "user_id": {'DataType': 'String', 'StringValue': request.form.get('user_id', ''), },
-            "user_name": {'DataType': 'String', 'StringValue': request.form.get('user_name', ''), },
-            "command": {'DataType': 'String', 'StringValue': request.form.get('command', ''), },
-            "text": {'DataType': 'String', 'StringValue': request.form.get('text', ''), },
-            "response_url": {'DataType': 'String', 'StringValue': request.form.get('response_url', ''), },
+            "token": {
+                'DataType': 'String',
+                'StringValue': request.form.get('token', ''),
+            },
+            "team_id": {
+                'DataType': 'String',
+                'StringValue': request.form.get('team_id', ''),
+            },
+            "team_domain": {
+                'DataType': 'String',
+                'StringValue': request.form.get('team_domain', ''),
+            },
+            "channel_id": {
+                'DataType': 'String',
+                'StringValue': request.form.get('channel_id', ''),
+            },
+            "channel_name": {
+                'DataType': 'String',
+                'StringValue': request.form.get('channel_name', ''),
+            },
+            "user_id": {
+                'DataType': 'String',
+                'StringValue': request.form.get('user_id', ''),
+            },
+            "user_name": {
+                'DataType': 'String',
+                'StringValue': request.form.get('user_name', ''),
+            },
+            "command": {
+                'DataType': 'String',
+                'StringValue': request.form.get('command', ''),
+            },
+            "text": {
+                'DataType': 'String',
+                'StringValue': request.form.get('text', ''),
+            },
+            "response_url": {
+                'DataType': 'String',
+                'StringValue': request.form.get('response_url', ''),
+            },
         }
     ))
 

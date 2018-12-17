@@ -4,6 +4,7 @@ Simple example for Lambda->SQS->Lambda.
 
 import os
 import boto3
+import requests
 
 SQS_CLIENT = boto3.client('sqs')
 
@@ -29,5 +30,11 @@ def end(event, context):
     :param context: AWS function's context
     :return: ''
     """
-    print(event)
+    # print(event)
+    url = event['Records'][0]['messageAttributes'].get('response_url').get('stringValue')
+    # print('url: ', url)
+
+    r = requests.post(url, json={'text': 'Done.'})
+    print('response', r)
+
     return 'Done.'
