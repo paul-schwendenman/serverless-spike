@@ -21,7 +21,7 @@ else:
 
 @app.route("/")
 def hello():
-    return jsonify(os.environ)
+    return jsonify(dict(os.environ))
 
 
 @app.route("/users/<string:user_id>")
