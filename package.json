@@ -15,6 +15,7 @@
     "serverless-wsgi": "^1.7.3"
   },
   "dependencies": {
-    "npm": "^6.11.2"
+    "node.extend": "^2.0.2",
+    "npm": "^6.11.3"
   }
 }
