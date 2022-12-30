@@ -17,6 +17,6 @@
   "dependencies": {
     "node.extend": "^2.0.2",
     "npm": "^6.11.3",
-    "serverless": "^1.52.0"
+    "serverless": "^1.83.3"
   }
 }
